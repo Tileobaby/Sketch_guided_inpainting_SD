@@ -1,0 +1,9 @@
+check points:
+one: noise level is one
+1: for inpainting work
+2: changable size for centeral square mask
+real_1k,1p_1:real sketch 1k iamge with 1 epoch and the line width is 1
+real_1k_1p_3:real sketch 1k iamge with 1 epoch and the line width is 3
+real_5k_1p_3:real sketch 5k iamge with 1 epoch and the line width is 3
+real_5k_1p_5:real sketch 5k iamge with 1 epoch and the line width is 5
+real_5k_10p_5:
