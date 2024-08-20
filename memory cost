@@ -1,0 +1,119 @@
+text2img:
+before sample: 4222.00 MB allocated
+after sample: 13666.00 MB allocated
+
+inpainting: 
+
+before initialize: 0.00 MB allocated
+before initialize: 0.00 MB allocated
+
+after initialize: 7381.40 MB allocated
+after initialize: 7530.00 MB allocated
+
+after initialize all: 7432.09 MB allocated
+after initialize all: 7580.00 MB allocated
+
+before inpaint: 7432.09 MB allocated
+before inpaint: 7580.00 MB allocated
+
+before sample: 9806.42 MB allocated
+before sample: 13014.00 MB allocated
+after sample: 10182.69 MB allocated
+after sample: 13014.00 MB allocated
+befor loss: 10342.01 MB allocated
+befor loss: 13014.00 MB allocated
+
+after ddim sampling: 9801.99 MB allocated
+after ddim sampling: 13014.00 MB allocated
+after sample inpaint_st: 9798.92 MB allocated
+after sample inpaint_st: 13014.00 MB allocated
+after decode: 9800.42 MB allocated
+after decode: 13014.00 MB allocated
+
+
+nvidia-smi:15184MiB
+
+
+|===========================================================================|
+|                  PyTorch CUDA memory summary, device ID 0                 |
+|---------------------------------------------------------------------------|
+|            CUDA OOMs: 0            |        cudaMalloc retries: 0         |
+|===========================================================================|
+|        Metric         | Cur Usage  | Peak Usage | Tot Alloc  | Tot Freed  |
+|---------------------------------------------------------------------------|
+| Allocated memory      |    7432 MB |   12236 MB |    1003 GB |     996 GB |
+|       from large pool |    7354 MB |   12072 MB |     998 GB |     991 GB |
+|       from small pool |      77 MB |     168 MB |       5 GB |       5 GB |
+|---------------------------------------------------------------------------|
+| Active memory         |    7432 MB |   12236 MB |    1003 GB |     996 GB |
+|       from large pool |    7354 MB |   12072 MB |     998 GB |     991 GB |
+|       from small pool |      77 MB |     168 MB |       5 GB |       5 GB |
+|---------------------------------------------------------------------------|
+| GPU reserved memory   |   13014 MB |   13014 MB |   13014 MB |       0 B  |
+|       from large pool |   12838 MB |   12838 MB |   12838 MB |       0 B  |
+|       from small pool |     176 MB |     176 MB |     176 MB |       0 B  |
+|---------------------------------------------------------------------------|
+| Non-releasable memory |  151418 KB |    3246 MB |  768472 MB |  768324 MB |
+|       from large pool |  150656 KB |    3209 MB |  762659 MB |  762512 MB |
+|       from small pool |     762 KB |      47 MB |    5812 MB |    5812 MB |
+|---------------------------------------------------------------------------|
+| Allocations           |    1941    |    2890    |   92606    |   90665    |
+|       from large pool |     575    |    1005    |   53003    |   52428    |
+|       from small pool |    1366    |    1886    |   39603    |   38237    |
+|---------------------------------------------------------------------------|
+| Active allocs         |    1941    |    2890    |   92606    |   90665    |
+|       from large pool |     575    |    1005    |   53003    |   52428    |
+|       from small pool |    1366    |    1886    |   39603    |   38237    |
+|---------------------------------------------------------------------------|
+| GPU reserved segments |     321    |     321    |     321    |       0    |
+|       from large pool |     233    |     233    |     233    |       0    |
+|       from small pool |      88    |      88    |      88    |       0    |
+|---------------------------------------------------------------------------|
+| Non-releasable allocs |      96    |     244    |   45813    |   45717    |
+|       from large pool |      92    |     127    |   31904    |   31812    |
+|       from small pool |       4    |     131    |   13909    |   13905    |
+|---------------------------------------------------------------------------|
+| Oversize allocations  |       0    |       0    |       0    |       0    |
+|---------------------------------------------------------------------------|
+| Oversize GPU segments |       0    |       0    |       0    |       0    |
+|===========================================================================|
+
+
+#model.summarize()
+for inpainting
+  | Name              | Type               | Params
+---------------------------------------------------------
+0 | model             | DiffusionWrapper   | 859 M 
+1 | model_ema         | LitEma             | 0     
+2 | first_stage_model | AutoencoderKL      | 83.7 M
+3 | cond_stage_model  | FrozenCLIPEmbedder | 123 M 
+---------------------------------------------------------
+859 M     Trainable params
+206 M     Non-trainable params
+1.1 B     Total params
+4,264.999 Total estimated model params size (MB)
+
+for text2img:
+  | Name              | Type               | Params
+---------------------------------------------------------
+0 | model             | DiffusionWrapper   | 859 M 
+1 | first_stage_model | AutoencoderKL      | 83.7 M
+2 | cond_stage_model  | FrozenCLIPEmbedder | 123 M 
+---------------------------------------------------------
+859 M     Trainable params
+206 M     Non-trainable params
+1.1 B     Total params
+4,264.941 Total estimated model params size (MB)
+
+
+parameters number:
+after initialize:
+LatentDiffusion has 1066.24 M params.
+LatentInpaintDiffusion has 1066.25 M params.
+
+with buffers:
+LatentDiffusion has 1066.25 M params.
+LatentInpaintDiffusion has 1925.80 M params.
+
+
+
